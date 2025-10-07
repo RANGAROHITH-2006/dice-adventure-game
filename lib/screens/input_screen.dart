@@ -23,6 +23,10 @@ class _InputScreenState extends State<InputScreen> {
   void _submitGridSize() {
     if (_formKey.currentState!.validate()) {
       final gridSize = int.parse(_controller.text);
+      
+      // Clear the input field after successful validation
+      _controller.clear();
+      
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -54,7 +58,7 @@ class _InputScreenState extends State<InputScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Spacer(),
+               
                 
                 // Title
                 const Text(
@@ -153,22 +157,7 @@ class _InputScreenState extends State<InputScreen> {
                   ),
                 ),
                 
-                const Spacer(),
-                
-                // Bottom dots decoration (similar to your image)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(5, (index) => Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 8),
-                    width: 6,
-                    height: 6,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                    ),
-                  )),
-                ),
-                
+             
                 const SizedBox(height: 20),
               ],
             ),
